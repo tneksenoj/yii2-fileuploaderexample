@@ -13,6 +13,7 @@ class UploadForm extends Model
      * @var UploadedFile[]
      */
     public $imageFiles;
+    public $dataProvider;
 
     public function rules()
     {

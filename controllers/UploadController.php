@@ -9,6 +9,7 @@ use yii\web\UploadedFile;
 
 class UploadController extends Controller
 {
+
     public function actionUpload()
     {
         $model = new UploadForm();

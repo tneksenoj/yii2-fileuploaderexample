@@ -18,6 +18,7 @@ use app\models\ActiveRecord;
 class File extends \yii\db\ActiveRecord
 {
     public static $counter;
+    public $dataProvider;
     /**
      * @inheritdoc
      */
