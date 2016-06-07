@@ -17,6 +17,7 @@ use app\models\ActiveRecord;
  */
 class File extends \yii\db\ActiveRecord
 {
+    public static $counter;
     /**
      * @inheritdoc
      */
@@ -68,11 +69,14 @@ class File extends \yii\db\ActiveRecord
 
     public function uploadFile($file)
     {
-        $location = 'uploads/';
-        $orig_name =  $file->baseName . '.' . $file->extension;
-        $alias_name = Yii::$app->security->generateRandomString($length=20) . strval(time()) . "." .  $file->extension;
-        if ( ! rename($location . $orig_name, $location . $alias_name ) )
+        File::$counter++;
+        //error_log(print_R($this->id, TRUE), 3, 'C://xampp/htdocs/basic2/web/log/dbg.log');
+        $this->location = Yii::getAlias('@webroot/uploads/');
+        $this->orig_name =  $file->baseName . '.' . $file->extension;
+        $this->alias_name = Yii::$app->security->generateRandomString($length=20) . strval(time()) . strval(File::$counter) . "." .  $file->extension;
+        if ( ! rename($this->location . $this->orig_name, $this->location . $this->alias_name ) )
             return false;
     }
-
 }
+
+File::$counter = 0;

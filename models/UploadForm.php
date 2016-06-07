@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
+use dpodium\filemanager\widgets\FileBrowse;
 
 class UploadForm extends Model
 {
