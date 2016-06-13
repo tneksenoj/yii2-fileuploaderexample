@@ -37,7 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'location',
             'orig_name',
-            'alias_name',
+            array( 'format' => 'image', 
+                    'value' => function($data) { 
+                        return $data->getImageurl() . "['alt'=>'some', 'class'=>'thing', 'height'=>'100px', 'width'=>'100px']"; 
+                    }
+            ),
         ],
     ]) ?>
 

@@ -78,6 +78,12 @@ class File extends \yii\db\ActiveRecord
         if ( ! rename($this->location . $this->orig_name, $this->location . $this->alias_name ) )
             return false;
     }
+    
+    public function getImageurl()
+    {
+        return Yii::getAlias('@web') .'/uploads/' . $this->alias_name;
+    }
+
 }
 
 File::$counter = 0;

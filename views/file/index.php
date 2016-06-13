@@ -18,16 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Upload Files', ['upload/upload'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+    <?= Gridview::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
-            'location',
             'orig_name',
-            'alias_name',
+            [
+                'attribute' => 'img',
+                'format' => 'html',
+                'label' => 'Images',
+                'value' => function ($data) {
+                    return Html::img( $data->getImageurl() ,
+                        [ 'height' => '60px']);
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
