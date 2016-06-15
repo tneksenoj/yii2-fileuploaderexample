@@ -8,8 +8,12 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\W3schoolsAsset;
+use app\assets\SiiAsset;
 
 AppAsset::register($this);
+W3schoolsAsset::register($this);
+SiiAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
