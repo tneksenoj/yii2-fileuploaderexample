@@ -1,0 +1,6 @@
+.sii-filename-elips { 
+	width:12em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
