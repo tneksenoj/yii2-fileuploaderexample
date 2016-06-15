@@ -27,23 +27,21 @@ echo "<p>" . $baseUrl . "</p>";
     <p>
         <?= Html::a('Upload Files', ['upload/upload'], ['class' => 'btn btn-success']) ?>
     </p>
-    <div class='w3-row-padding' style = "max-height:160px">
-        <?php foreach ( $dataProvider->getModels() as $file ): ?>
-            <div class="w3-third w3-margin-bottom">
-                <div class="w3-card-8 w3-center" style="width:80%;">
-                    <div class="w3-container" style="background-image:url(<?php echo $file->getImageurl()?>);
-                        height:10em;
-                        background-size:cover;
-                        background-position:center;
-                        background-repeat:no-repeat;">
+    <div class='w3-container w3-center'>
+        <div class='w3-row-padding' style = "max-height:10em">
+            <?php foreach ( $dataProvider->getModels() as $file ): ?>
+                <div class="w3-col s12 m4 l3 w3-margin-bottom">
+                    <div class="w3-card-8 w3-center" >
+                        <div class="w3-container sii-fileimage-icon" style="background-image:url(<?php echo $file->getImageurl()?>);">
+                        </div>
+                        <div class="w3-container w3-center" >
+                            <h4><b><div class="sii-filename-elips"><?php echo $file->orig_name; ?></div> </b></h4>
+                            <p>Tropical Island Group id: 1</p>
+                          </div>
                     </div>
-                    <div class="w3-container w3-center" >
-                        <h4><b><div class="sii-filename-elips"><?php echo $file->orig_name; ?></div> </b></h4>
-                        <p>Tropical Island Group id: 1</p>
-                      </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
 <!--     <?= Gridview::widget([
